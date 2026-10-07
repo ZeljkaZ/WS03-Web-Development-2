@@ -25,7 +25,7 @@ app.use(express.static("public"));
 
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-  next(); // Don't forget to call next()!
+  next();
 });
 
 // ========================================
@@ -105,22 +105,21 @@ app.use('/api', apiRouter);
 // 404 Handler - Must be placed AFTER all other routes
 // This catches any requests that don't match the routes above
 // TODO: Complete:
-/*
+
 app.use((req, res) => {
-    complete this line - res.status(404)....);
+  res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
 });
-*/
 
 // 500 Error Handler - Must be placed LAST
 // This catches any errors that occur in your application
 // Note: Error handling middleware has 4 parameters: (err, req, res, next)
 // TODO: Complete:
-/*
+
 app.use((err, req, res, next) => {
-    console.error('Server Error:', err.stack);
-    complete this line - res.status(500)....);
+  console.error("Server Error:", err.stack);
+
+  res.status(500).sendFile(path.join(__dirname, "public", "500.html"));
 });
-*/
 
 // ========================================
 // Start the Server
