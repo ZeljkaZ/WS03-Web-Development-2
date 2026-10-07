@@ -6,7 +6,8 @@ const path = require('path');
 // ========================================
 // Step 1: Create an Express application instance
 
-const PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = 3000;
 
 // ========================================
 // TODO: Task 2 - Serve Static Files
