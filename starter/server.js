@@ -22,12 +22,11 @@ app.use(express.static('public'));
 // BONUS: Custom Request Logging Middleware
 // ========================================
 // Uncomment this middleware to log all incoming requests:
-/*
+
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
     next(); // Don't forget to call next()!
 });
-*/
 
 
 // ========================================
@@ -39,15 +38,26 @@ app.use((req, res, next) => {
 // TODO: Create a GET route for '/'
 // Hint: serve 'index.html'
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // About page route
 // TODO: Create a GET route for '/about'
 // Hint: Similar to the home page route, but serve 'about.html'
 
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'about.html'));
+});
+
 
 // Contact page route
 // TODO: Create a GET route for '/contact'
 // Hint: Similar to the home page route, but serve 'contact.html'
+
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+});
 
 
 // ========================================
