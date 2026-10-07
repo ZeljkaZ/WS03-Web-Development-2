@@ -1,5 +1,5 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 
 // ========================================
 // TODO: Task 1 - Create Express App
@@ -16,7 +16,7 @@ const PORT = 3000;
 // This middleware automatically serves HTML, CSS, images, etc.
 // Hint: This single line replaces all the file reading logic from Workshop 02!
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // ========================================
 // BONUS: Custom Request Logging Middleware
@@ -24,10 +24,9 @@ app.use(express.static('public'));
 // Uncomment this middleware to log all incoming requests:
 
 app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-    next(); // Don't forget to call next()!
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next(); // Don't forget to call next()!
 });
-
 
 // ========================================
 // TODO: Task 3 - Add Route Handlers
@@ -38,27 +37,25 @@ app.use((req, res, next) => {
 // TODO: Create a GET route for '/'
 // Hint: serve 'index.html'
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // About page route
 // TODO: Create a GET route for '/about'
 // Hint: Similar to the home page route, but serve 'about.html'
 
-app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'about.html'));
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "about.html"));
 });
-
 
 // Contact page route
 // TODO: Create a GET route for '/contact'
 // Hint: Similar to the home page route, but serve 'contact.html'
 
-app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+app.get("/contact", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "contact.html"));
 });
-
 
 // ========================================
 // TODO: Task 4 - Create API Endpoint
@@ -68,6 +65,13 @@ app.get('/contact', (req, res) => {
 // TODO: Create a GET route for '/api/time'
 // It should return JSON with 'datetime' and 'timestamp' properties
 // Hint: Use res.json() to send JSON response
+
+app.get("/api/time", (req, res) => {
+  res.json({
+    datetime: new Date().toISOString(),
+    timestamp: Date.now(),
+  });
+});
 
 // ========================================
 // BONUS: Task 6 - Express Router (Optional)
@@ -94,7 +98,6 @@ apiRouter.get('/info', (req, res) => {
 app.use('/api', apiRouter);
 */
 
-
 // ========================================
 // TODO: Task 5 - Error Handling Middleware
 // ========================================
@@ -108,7 +111,6 @@ app.use((req, res) => {
 });
 */
 
-
 // 500 Error Handler - Must be placed LAST
 // This catches any errors that occur in your application
 // Note: Error handling middleware has 4 parameters: (err, req, res, next)
@@ -119,7 +121,6 @@ app.use((err, req, res, next) => {
     complete this line - res.status(500)....);
 });
 */
-
 
 // ========================================
 // Start the Server
