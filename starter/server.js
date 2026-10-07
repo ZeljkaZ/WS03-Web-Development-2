@@ -16,6 +16,7 @@ const PORT = 3000;
 // This middleware automatically serves HTML, CSS, images, etc.
 // Hint: This single line replaces all the file reading logic from Workshop 02!
 
+app.use(express.static('public'));
 
 // ========================================
 // BONUS: Custom Request Logging Middleware
