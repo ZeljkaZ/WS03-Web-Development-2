@@ -125,17 +125,16 @@ app.use((err, req, res, next) => {
 // Start the Server
 // ========================================
 // TODO: Uncomment the code below to start the server:
-/*
+
 app.listen(PORT, () => {
-    console.log(`✅ Server is running on http://localhost:${PORT}`);
-    console.log('\n📍 Available routes:');
-    console.log('  GET /              -> Home page');
-    console.log('  GET /about         -> About page');
-    console.log('  GET /contact       -> Contact page');
-    console.log('  GET /api/time      -> Current date/time API');
-    console.log('\n⏹️  Press Ctrl+C to stop the server\n');
+  console.log(`✅ Server is running on http://localhost:${PORT}`);
+  console.log("\n📍 Available routes:");
+  console.log("  GET /              -> Home page");
+  console.log("  GET /about         -> About page");
+  console.log("  GET /contact       -> Contact page");
+  console.log("  GET /api/time      -> Current date/time API");
+  console.log("\n⏹️  Press Ctrl+C to stop the server\n");
 });
-*/
 
 // ========================================
 // 🎯 IMPLEMENTATION TIPS
